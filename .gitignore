@@ -9,3 +9,7 @@ jspm_packages
 .env
 env.yaml
 env.yml
+
+envdotjs-key
+env.js
+.DS_Store
