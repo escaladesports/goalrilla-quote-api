@@ -1,17 +1,10 @@
 service: goalrilla-quote-api # NOTE: update this with your service name
 
-custom:
-  secrets: ${file(env.yml):prod}
-
 provider:
   name: aws
   runtime: nodejs6.10
   stage: dev
   region: us-east-2
-  environment:
-    SPARKPOST_API_KEY: "${self:custom.secrets.SPARKPOST_API_KEY}"
-    GOOGLE_SHEETS_API_KEY: "${self:custom.secrets.GOOGLE_SHEETS_API_KEY}"
-    GOOGLE_SHEETS_CLIENT_EMAIL: "${self:custom.secrets.GOOGLE_SHEETS_CLIENT_EMAIL}"
 
 plugins:
   - serverless-offline
