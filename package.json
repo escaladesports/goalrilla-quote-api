@@ -1,6 +1,7 @@
 {
   "devDependencies": {
     "esca-scripts": "^0.12.1",
+    "opn-cli": "^3.1.0",
     "serverless-offline": "^3.16.0"
   },
   "dependencies": {
@@ -11,8 +12,9 @@
     "sparkpost": "^2.1.2"
   },
   "scripts": {
-	 "dev": "NODE_ENV=dev serverless offline start",
-	 "encrypt": "envdotjs --encrypt",
-	 "unencrypt": "envdotjs --unencrypt"
+    "dev": "NODE_ENV=dev serverless offline start",
+    "encrypt": "envdotjs --encrypt",
+    "unencrypt": "envdotjs --unencrypt",
+    "travis": "opn https://travis-ci.org/escaladesports/goalrilla-quote-api/branches"
   }
 }
