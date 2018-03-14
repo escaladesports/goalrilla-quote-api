@@ -1,10 +1,12 @@
 'use strict';
-
+require('envdotjs').load()
 const quotesApi = require('./src/quotes-api.js');
 
 module.exports.postQuoteRequest = (event, context, callback) => {
-  const body = JSON.parse(event.body);
 
+	const body = JSON.parse(event.body);
+
+	console.log('Body:', body)
   const params = {
     dealerId: body.dealerId,
     dealerName: body.dealerName,
@@ -23,6 +25,7 @@ module.exports.postQuoteRequest = (event, context, callback) => {
   };
 
   quotesApi.postQuote(params).then(responseData => {
+	  console.log('responseData', responseData)
     const body = JSON.stringify(responseData);
     const response = {
       statusCode: 200,
@@ -34,8 +37,9 @@ module.exports.postQuoteRequest = (event, context, callback) => {
     };
     callback(null, response);
   }).catch(err => {
+	  console.error(err)
     let msg = 'There was a problem with your request. Please try again later';
-    
+
     if (err.code === 'malformed') {
       msg = 'The request data was malformed- ensure parameter data is correct and try again.'
     }
