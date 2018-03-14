@@ -35,6 +35,7 @@ module.exports.postQuote = function(data) {
 			error: new Error('Malformed request data')
 		});
 	}
+	console.log('Valid request')
 	// make request if valid
 	return postQuoteActions(data);
 }

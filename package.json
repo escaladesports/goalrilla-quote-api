@@ -13,9 +13,15 @@
     "sparkpost": "^2.1.2"
   },
   "scripts": {
-    "dev": "NODE_ENV=dev serverless offline start",
+	 "dev": "NODE_ENV=dev serverless offline start",
+	 "deploy-production": "SLS_DEBUG=* serverless deploy --verbose --stage production",
+	 "build": "serverless package",
     "encrypt": "envdotjs --encrypt",
     "unencrypt": "envdotjs --unencrypt",
-    "travis": "opn https://travis-ci.org/escaladesports/goalrilla-quote-api/branches"
+    "travis": "opn https://travis-ci.org/escaladesports/goalrilla-quote-api/branches",
+	"logs": "sls logs --tail --stage staging --function postQuoteRequest",
+	"logs-production": "sls logs --tail --stage production --function postQuoteRequest",
+	"logs-short": "sls logs --tail --stage staging --function postQuoteRequest --startTime 5m",
+	"logs-production-short": "sls logs --tail --stage production --function postQuoteRequest --startTime 5m"
   }
 }
