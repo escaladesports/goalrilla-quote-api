@@ -30,8 +30,14 @@ function sendQuoteRequestEmail(data, sendTo) {
 		<li>City: ${data.dealerCity}</li>
 		<li>State: ${data.dealerState}</li>
 		<li>Zip code: ${data.dealerZip}</li>
+		<li>Email: ${data.dealerEmail}</li>
 	</ul>
 	</body></html>`;
+
+	sendTo.push({
+		email: data.dealerEmail,
+		name: data.dealerName,
+	})
 
 	return client.send({subject, message}, sendTo);
 }
