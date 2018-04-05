@@ -19,7 +19,7 @@ class EmailClient {
 		console.log('Sending to: ', rec)
 		const transmission = {
 			content: {
-				from: 'noreply@escaladesports.com',
+				from: 'noreply@goalrilla.com',
 				subject: messageData.subject,
 				html: messageData.message
 			},
